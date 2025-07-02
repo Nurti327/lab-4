@@ -1,22 +1,12 @@
 #include <iostream>
-#include <set>
 using namespace std;
+int fibonacci(int n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
 int main() {
-    set<int> s;
-    int x;
-    cout << "enter 10 integers: ";
-    for (int i = 0; i < 10; ++i) {
-        cin >> x;
-        s.insert(x);
-    }
-    cout << "set elements: ";
-    for (int n : s) cout << n << " ";
-    cout << endl;
-    cout << "enter number to search: ";
-    cin >> x;
-    if (s.find(x) != s.end())
-        cout << x << " is found.\n";
-    else
-        cout << x << " not found.\n";
+    int n;
+    cin >> n;
+    cout << fibonacci(n) << endl;
     return 0;
 }

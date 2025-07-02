@@ -1,18 +1,12 @@
 #include <iostream>
-#include <queue>
 using namespace std;
+int power(int a, int b) {
+    if (b == 0) return 1;
+    return a * power(a, b - 1);
+}
 int main() {
-    queue<string> q;
-    string name;
-    cout << "Enter 5 names: ";
-    for (int i = 0; i < 5; ++i) {
-        cin >> name;
-        q.push(name);
-    }
-    while (!q.empty()) {
-        cout << "Now serving: " << q.front() << endl;
-        q.pop();
-    }
-    cout << "Queue is empty." << endl;
+    int a, b;
+    cin >> a >> b;
+    cout << power(a, b) << endl;
     return 0;
 }

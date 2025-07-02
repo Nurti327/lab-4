@@ -1,19 +1,14 @@
 #include <iostream>
-#include <map>
-#include <sstream>
 using namespace std;
+void reverseString(string &s, int start, int end) {
+    if (start >= end) return;
+    swap(s[start], s[end]);
+    reverseString(s, start + 1, end - 1);
+}
 int main() {
-    string sentence;
-    cout << "enter a sentence: ";
-    getline(cin, sentence);
-    map<string, int> wordCount;
-    stringstream ss(sentence);
-    string word;
-    while (ss >> word) {
-        wordCount[word]++;
-    }
-    for (auto& pair : wordCount) {
-        cout << pair.first << " -> " << pair.second << endl;
-    }
+    string s;
+    cin >> s;
+    reverseString(s, 0, s.length() - 1);
+    cout << s << endl;
     return 0;
 }
